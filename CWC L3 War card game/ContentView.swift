@@ -9,14 +9,65 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+        ZStack{
+            
+            Image("backgrounf-plain")
+                .resizable()
+                .ignoresSafeArea()
+            
+            VStack{
+                Spacer()
+                Image("logo")
+                Spacer()
+                HStack{
+                    Spacer()
+                    Image("card2")
+                    Spacer()
+                    Image("card3")
+                    Spacer()
+                }
+                Spacer()
+                Image("button")
+                Spacer()
+                HStack{
+                    Spacer()
+                    VStack{
+                        Spacer()
+                        
+                        Text("Player")
+                        Spacer()
+                        Text("0")
+                        Spacer()
+                        
+                    }
+                    Spacer()
+                    VStack{
+                        Spacer()
+                        Text("CPU")
+                        Spacer()
+                        Text("0")
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                    
+                   
+                }
+              
+                HStack{
+                   
+                   
+                    Spacer()
+                }
+                Spacer()
+                
+            }.font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.white).background(Image("background-cloth"))
+                .padding(.vertical, 47.0)
+                .ignoresSafeArea()
+                    
+        }}
 }
 
 struct ContentView_Previews: PreviewProvider {
