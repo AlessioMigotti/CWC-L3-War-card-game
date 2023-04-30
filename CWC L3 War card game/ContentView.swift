@@ -8,7 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+   
+    @State var playerCard = "card7"
+    @State var cpuCard = "card13"
+    
+    @State var playerScore = 0
+    @State var cpuScore = 0
+    
     var body: some View {
+        
         ZStack{
             
             Image("background-plain")
@@ -21,13 +29,20 @@ struct ContentView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    Image("card2")
+                    Image(playerCard)
                     Spacer()
-                    Image("card3")
+                    Image(cpuCard)
                     Spacer()
                 }
                 Spacer()
-                Image("button")
+                
+                Button {
+                    deal()
+                } label: {
+                    Image("button")
+                }
+
+                
                 Spacer()
                 HStack{
                     Spacer()
@@ -36,7 +51,7 @@ struct ContentView: View {
                         Text("Player").font(.headline)
                             .padding(.bottom, 10.0)
                         
-                        Text("0").font(.largeTitle)
+                        Text(String(playerScore)).font(.largeTitle)
                         
                         
                     }
@@ -45,7 +60,7 @@ struct ContentView: View {
                         
                         Text("CPU").font(.headline).padding(.bottom, 10.0)
                         
-                        Text("0").font(.largeTitle)
+                        Text(String(cpuScore)).font(.largeTitle)
                         
                     }
                     
@@ -64,6 +79,22 @@ struct ContentView: View {
             }
                     
         }}
+    
+    func deal(){
+        // Randomize cards
+        var playerCardValue = Int.random(in: 2...14)
+        playerCard = "card" + String(playerCardValue)
+        var cpuCardValue = Int.random(in: 2...14)
+        cpuCard = "card" + String(cpuCardValue)
+        //Update score
+        if playerCardValue > cpuCardValue {
+            playerScore += 1
+        }
+        else if cpuCardValue > playerCardValue{
+            cpuScore += 1
+        }
+        
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
