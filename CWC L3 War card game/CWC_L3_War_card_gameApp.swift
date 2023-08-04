@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 @main
 struct CWC_L3_War_card_gameApp: App {
     var body: some Scene {
